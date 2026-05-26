@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+.bin/
+.buildozer/
+bin/
+.venv/
+venv/
+*.egg-info/
+
+# 本地用户配置(调试时 ConfigManager 会写到 user_data_dir,不在项目内)
+# 但为了保险,也排除可能误放在项目内的配置文件
+config.json
+history.json
+*.log
+.kivy/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Android build artifacts
+*.apk
+*.aab
