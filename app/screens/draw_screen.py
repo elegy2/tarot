@@ -78,7 +78,15 @@ class DrawScreen(Screen):
             self._tip_label, "text_size", self._tip_label.size))
         self._root.add_widget(self._tip_label)
 
-        self._scroll = ScrollView(size_hint=(1, 1), bar_width=dp(4))
+        # ScrollView 优化: 手机端触摸滚动体验
+        self._scroll = ScrollView(
+            size_hint=(1, 1),
+            bar_width=dp(6),  # 手机端细滚动条
+            scroll_type=["bars", "content"],  # 支持触摸滚动
+            bar_color=[0.86, 0.68, 0.32, 0.6],  # 金色滚动条
+            bar_inactive_color=[0.86, 0.68, 0.32, 0.3],
+            effect_cls="ScrollEffect",  # 使用标准滚动效果
+        )
         self._root.add_widget(self._scroll)
 
         self._status_label = Label(

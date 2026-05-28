@@ -76,8 +76,15 @@ class ResultScreen(Screen):
         header.add_widget(self._title)
         root.add_widget(header)
 
-        # 主体可滚动区
-        scroll = ScrollView(size_hint=(1, 1), bar_width=dp(4))
+        # 主体可滚动区 - 优化手机端滚动体验
+        scroll = ScrollView(
+            size_hint=(1, 1),
+            bar_width=dp(6),
+            scroll_type=["bars", "content"],
+            bar_color=[0.86, 0.68, 0.32, 0.6],
+            bar_inactive_color=[0.86, 0.68, 0.32, 0.3],
+            effect_cls="ScrollEffect",
+        )
         self._content = BoxLayout(orientation="vertical", spacing=dp(10),
                                   size_hint_y=None,
                                   padding=[0, dp(4), 0, dp(20)])
